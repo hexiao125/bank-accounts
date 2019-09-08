@@ -5,12 +5,13 @@ import "./App.css";
 
 import DataTable from "./components/DataTable";
 import Transactions from "./components/Transactions";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <h2>Bank Accounts</h2>
+        <Header />
         <Switch>
           <Route path="/" exact component={DataTable} />
           <Route path="/:id/transactions" component={Transactions} />
