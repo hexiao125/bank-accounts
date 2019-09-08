@@ -24,7 +24,7 @@ const Transactions = props => {
   }, [props.match.params.id]);
 
   return (
-    <div>
+    <div className="transactions-container">
       {isError && <div>Oops! Something went wrong...</div>}
       {isLoading ? (
         <div>Loading...</div>

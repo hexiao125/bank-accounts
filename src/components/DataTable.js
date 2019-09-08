@@ -24,7 +24,7 @@ const DataTable = () => {
   }, []);
 
   return (
-    <div>
+    <div className="accounts-container">
       {isError && <div>Oops! Something went wrong...</div>}
       {isLoading ? (
         <div>Loading...</div>
