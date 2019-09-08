@@ -1,34 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
-import api from "./apis/api";
+
 import DataTable from "./components/DataTable";
+import Transactions from "./components/Transactions";
 
 function App() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsError(false);
-      setIsLoading(true);
-      try {
-        const response = await api.get();
-        setData(response.data.accounts);
-        console.log(response.data.accounts);
-      } catch (error) {
-        setIsError(true);
-      }
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
   return (
     <div className="App">
-      <h2>Bank Accounts</h2>
-      {isError && <div>Oops! Something went wrong...</div>}
-      {isLoading ? <div>Loading...</div> : <DataTable data={data} />}
+      <BrowserRouter>
+        <h2>Bank Accounts</h2>
+        <Switch>
+          <Route path="/" exact component={DataTable} />
+          <Route path="/:id/transactions" component={Transactions} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
