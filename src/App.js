@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
-import DataTable from "./components/DataTable";
+import Accounts from "./components/Accounts";
 import Transactions from "./components/Transactions";
 import Header from "./components/Header";
 
@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path="/" exact component={DataTable} />
+          <Route path="/" exact component={Accounts} />
           <Route path="/:id/transactions" component={Transactions} />
         </Switch>
       </BrowserRouter>

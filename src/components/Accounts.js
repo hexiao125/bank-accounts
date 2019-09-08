@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Table } from "semantic-ui-react";
+
 import api from "../apis/api";
 
-const DataTable = () => {
+const Accounts = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -64,4 +65,4 @@ const DataTable = () => {
   );
 };
 
-export default DataTable;
+export default Accounts;

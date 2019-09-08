@@ -7,8 +7,9 @@ const Transactions = props => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
+  const { id } = props.match.params;
+
   useEffect(() => {
-    const id = props.match.params.id;
     const fetchData = async () => {
       setIsError(false);
       setIsLoading(true);
@@ -21,7 +22,7 @@ const Transactions = props => {
       setIsLoading(false);
     };
     fetchData();
-  }, [props.match.params.id]);
+  }, [id]);
 
   return (
     <div className="transactions-container">
